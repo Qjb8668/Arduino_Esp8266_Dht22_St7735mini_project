@@ -9,7 +9,7 @@ This is a project to use a SingleChip Microcomputer integrated with a wifi modul
 ## more details about components
 1. ESP8266 with CH340 chip. ESP8266 is originally an simple wifi module with high performence. Some company combine the ESP8266 wifi module and a MCU(micro control system) and become a SingleChip Microcomputer with the help of CH340 chip which make the compuer  control(get Serial information, flash the program, ...) more easily.
 2. DHT22 is a high-precision temperature/humidity sensor. Its precison is up to 0.2 degree centigrade of temperture and 0.2% of humidity. More details will be upload to *doc* floder. (***maybe later?***)
-3. ST7735 is a type of chip to control plenty of TFT or OLED monitors. My monitor is 0.96 inch TFT monitor with 160*80 pixels. I meet some trouble here because most of information is usually about 1.44 inch monitor or larger. Their code might have fatal incompatibility problem in my mini monitor. I had to read the ST7735 libraries files to get more details. (***Yeah It is really important to learn to read the library source files instead of only using it.***) And I find my mini monitor is called "mini ST7735" in library files. Thus with some changes, I cn control what I wnt to display easily.
+3. ST7735 is a type of chips to control plenty of TFT or OLED monitors. My monitor is 0.96 inch TFT monitor with 160*80 pixels. I meet some trouble here because most of information is usually about 1.44 inch monitor or larger. Their code might have fatal incompatibility problem in my mini monitor. I had to read the ST7735 libraries files to get more details. (***Yeah It is really important to learn to read the library source files instead of only using it.***) And I find my mini monitor is called "mini ST7735" in library files. Thus with some changes, I cn control what I wnt to display easily.
 ## details about source files
 Arduino is a good platform to control many kinds of SingleChip Microcomputer and sensors easily. It provides Arduino IDE to write and flash the program to SingleChip Microcomputer easily. Aruduino IDE is based on c++ so that you can use your previous library easily. My project is based on Arduino, too. ***You need to install CH340 driver in Window or MacOS system at first to make Arduino recognise your device.***
 
@@ -19,4 +19,4 @@ The source file is seperated to three parts. The firt part is about getting temp
 ## improvement
 1. Maybe there are some bugs need to be fixed.
 2. Add a feature that it can display the week today.
-3. I thought the Arduino can only compile a file so I push all the codes in a big file. I hope to change the big file into modularization design.
+3. ***I thought the Arduino can only compile a file so I push all the codes in a big file. I hope to change the big file into modularization design.***
