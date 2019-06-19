@@ -31,8 +31,8 @@ const unsigned char Word_qi[]{
 	0x15,0x20,0x62,0x20,0x04,0x40,0x00,0x00,/*"qi"*/
 };
 const unsigned char Word_zhou[] = {
-	0x00,0x00,0x00,0x00,0x01,0xF8,0x0E,0x88,0x08,0x88,0x0B,0xC8,0x08,0x88,0x0F,0xC8,
-	0x08,0x48,0x0B,0xA8,0x12,0x48,0x13,0xC8,0x12,0x08,0x20,0x38,0x40,0x18,0x00,0x00,/*"zhou"*/
+	0x00,0x00,0x1F,0xC0,0x12,0x40,0x1E,0x40,0x14,0x40,0x1B,0x40,0x1F,0x40,0x29,0x40,
+	0x26,0x40,0x40,0x40,0x00,0xC0,0x00,0x00/*"zhou"*/
 };
 const unsigned char Word_chu[] = {
 	0x00,0x00,0x0C,0x00,0x00,0x00,0x0C,0x60,0x78,0xA0,0x0D,0x20,0x3D,0x20,0x4A,0x40,
@@ -558,7 +558,7 @@ int lyears, lmonths, ldate, lhours, lminutes, lseconds;
 
 void TFT_print() {
 	int years = year(), months = month(), days = day(), hours = hour(),
-		minutes = minute(), seconds = second();
+		minutes = minute(), seconds = second(), weekdays = weekday();
 	
 	//check which part need to be reflash
 	bool mustReflash = false;
@@ -635,7 +635,8 @@ void TFT_print() {
 		TFT_print_OneWord(NowCursorX, FirstLineY, days, 0, 2);
 		TFT_print_OneWord(NowCursorX, FirstLineY, Word_ri, WordWeight, WordHeight, ST7735_YELLOW);
 		TFT_print_OneWord(NowCursorX, FirstLineY, "  ", 0, 2);
-
+		TFT_print_OneWord(NowCursorX, FirstLineY, Word_zhou, WordWeight, WordHeight, ST7735_YELLOW);
+		TFT_print_OneWord(NowCursorX, FirstLineY, Word_xingqi[(weekdays + 5) % 7], WordWeight, WordHeight, ST7735_YELLOW);
 	}
 	
 	//print tiangan dizhi and lunar
@@ -916,6 +917,7 @@ void setup() {
 	Serial.println("ESP8266 setup started!");
 	Serial.print("Connecting WiFi...");
 	WiFi.mode(WIFI_STA);
+	t_old = millis();
 	for (int i = 0; true; ) {
 		WiFi.begin(ssid[i], password[i]);
 		for (int j = 0; j != 10; ++j) {
@@ -926,7 +928,7 @@ void setup() {
 			else
 				break;
 		}
-		if (WiFi.status() != WL_CONNECTED) {
+		if ((WiFi.status() != WL_CONNECTED) && ((millis() - t_old) <= 10000)) {
 			WiFi.disconnect();
 			i = (i + 1) % WiFiCount;
 		}
