@@ -2,6 +2,10 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/0.1
 /__vm
 /.vs
+/0.8/Debug
+/Debug.sln
+/0.1/__vm
+/0.1/0.1.vcxproj.filters
+/0.1/0.1.vcxproj
