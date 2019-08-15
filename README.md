@@ -6,6 +6,7 @@ This is a project to use a SingleChip Microcomputer integrated with a wifi modul
 2. It can display present time which is getting from NTP server.
 3. It can display current temperature and humidity getting from Dht22 sensor in real time.
 4. The monitor would only reflash the area which is need to be update. It means the monitor won't reflash the whole area each time.
+5. (version 0.8) it can upload the data to my server now.
 ## More details about components
 1. ESP8266 with CH340 chip. ESP8266 is originally an simple wifi module with high performence. Some company combine the ESP8266 wifi module and a MCU(micro control system) and become a SingleChip Microcomputer with the help of CH340 chip which make the compuer  control(get Serial information, flash the program, ...) more easily.
 2. DHT22 is a high-precision temperature/humidity sensor. Its precison is up to 0.2 degree centigrade of temperture and 0.2% of humidity. More details will be upload to *doc* floder. (***maybe later?***)
@@ -19,7 +20,16 @@ The source file is seperated to three parts. The firt part is about getting temp
 ## Improvement
 1. Maybe there are some bugs need to be fixed.
 2. Add a feature that it can display the week today.
-3. ***I thought the Arduino can only compile a file so I push all the codes in a big file. I hope to change the big file into modularization design.***
+3. ***I thought the Arduino can only compile a file so 
+I push all the codes in a big file. I hope to change the 
+big file into modularization design.(I have try in 0.2 but 
+failed. I will seperate the file later.***
 
 ## Recent update
-Third version: add the feature of displaying the week today.
+0.8(2019/8): add the feature that it can upload my temperature
+and humidity data to my server. Everyone can signed up
+my server **203.195.201.32:9090** to watch the demo.  
+0.8(2019/8): use a third party library to get temperature and
+humidity which makes it more stability;
+
+0.1(2019/5): add the feature of displaying the week today.
