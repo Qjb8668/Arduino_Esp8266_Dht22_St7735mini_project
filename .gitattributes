@@ -1,7 +1,7 @@
 ###############################################################################
 # Set arduino behavior to automatically normalize line endings.
 ###############################################################################
-* ino=cpp
+* ino linguist-language=c++
 
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
